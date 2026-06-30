@@ -7,7 +7,7 @@
     <h2>Manage Buses</h2>
 
     <a href="/admin/add-bus" class="btn btn-success">
-        Add Bus
+        ➕ Add Bus
     </a>
 
 </div>
@@ -17,15 +17,13 @@
     <thead class="table-dark">
 
         <tr>
-
             <th>ID</th>
             <th>Bus Name</th>
             <th>Bus Number</th>
             <th>Route</th>
             <th>Seats</th>
             <th>Price</th>
-            <th>Action</th>
-
+            <th width="180">Action</th>
         </tr>
 
     </thead>
@@ -50,16 +48,27 @@
 
             <td>
 
+                <a href="/admin/edit-bus/{{ bus.id }}"
+                   class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
                 <a href="/admin/delete-bus/{{ bus.id }}"
                    class="btn btn-danger btn-sm"
-                   onclick="return confirm('Delete this bus?')">
-
+                   onclick="return confirm('Are you sure you want to delete this bus?')">
                     Delete
-
                 </a>
 
             </td>
 
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="7" class="text-center">
+                No buses found.
+            </td>
         </tr>
 
         {% endfor %}

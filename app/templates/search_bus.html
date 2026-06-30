@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">Search Bus</h2>
+
+<form method="POST">
+
+<div class="row">
+
+<div class="col-md-4">
+
+<label class="form-label">Source</label>
+
+<input
+type="text"
+name="source"
+class="form-control"
+placeholder="Enter Source"
+required>
+
+</div>
+
+<div class="col-md-4">
+
+<label class="form-label">Destination</label>
+
+<input
+type="text"
+name="destination"
+class="form-control"
+placeholder="Enter Destination"
+required>
+
+</div>
+
+<div class="col-md-4">
+
+<label class="form-label">Travel Date</label>
+
+<input
+type="date"
+name="travel_date"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<button class="btn btn-primary">
+
+Search Bus
+
+</button>
+
+</div>
+
+</form>
+
+{% endblock %}

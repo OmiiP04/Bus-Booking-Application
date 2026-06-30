@@ -1,6 +1,14 @@
 from app.extensions import db
 from flask_login import UserMixin
+from flask import flash
+from flask import redirect
+from flask import url_for
 
+from flask_login import current_user
+
+
+
+from app.models.booking import Booking
 
 class User(UserMixin, db.Model):
     __tablename__ = "users"

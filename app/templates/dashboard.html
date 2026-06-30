@@ -2,12 +2,20 @@
 
 {% block content %}
 
-<h2>Welcome {{ current_user.name }}</h2>
+<h2>
 
-<div class="alert alert-success">
+Welcome {{ current_user.name }}
 
-You have successfully logged in.
+</h2>
 
-</div>
+<hr>
+
+<a
+href="/search"
+class="btn btn-primary">
+
+Search Bus
+
+</a>
 
 {% endblock %}

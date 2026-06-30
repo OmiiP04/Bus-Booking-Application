@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">Available Buses</h2>
+
+{% if buses %}
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-dark">
+
+<tr>
+
+<th>Bus</th>
+<th>Route</th>
+<th>Departure</th>
+<th>Arrival</th>
+<th>Seats</th>
+<th>Price</th>
+<th></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for bus in buses %}
+
+<tr>
+
+<td>{{ bus.bus_name }}</td>
+
+<td>{{ bus.source }} → {{ bus.destination }}</td>
+
+<td>{{ bus.departure_time }}</td>
+
+<td>{{ bus.arrival_time }}</td>
+
+<td>{{ bus.available_seats }}</td>
+
+<td>₹{{ bus.price }}</td>
+
+<td>
+
+<a
+href="/book/{{ bus.id }}"
+class="btn btn-success btn-sm">
+
+Book Now
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% else %}
+
+<div class="alert alert-danger">
+
+No buses found.
+
+</div>
+
+{% endif %}
+
+{% endblock %}

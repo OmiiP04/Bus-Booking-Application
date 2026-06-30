@@ -77,3 +77,31 @@ def delete_bus(id):
     flash("Bus Deleted Successfully!", "success")
 
     return redirect(url_for("admin.manage_buses"))
+
+@admin.route("/admin/edit-bus/<int:id>", methods=["GET", "POST"])
+def edit_bus(id):
+
+    bus = Bus.query.get_or_404(id)
+
+    if request.method == "POST":
+
+        bus.bus_name = request.form["bus_name"]
+        bus.bus_number = request.form["bus_number"]
+        bus.source = request.form["source"]
+        bus.destination = request.form["destination"]
+        bus.departure_time = request.form["departure_time"]
+        bus.arrival_time = request.form["arrival_time"]
+        bus.total_seats = int(request.form["total_seats"])
+        bus.available_seats = int(request.form["available_seats"])
+        bus.price = float(request.form["price"])
+
+        db.session.commit()
+
+        flash("Bus Updated Successfully!", "success")
+
+        return redirect(url_for("admin.manage_buses"))
+
+    return render_template(
+        "edit_bus.html",
+        bus=bus
+    )
