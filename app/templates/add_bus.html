@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Add Bus</h2>
+
+<form method="POST">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Bus Name</label>
+
+<input type="text"
+name="bus_name"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Bus Number</label>
+
+<input type="text"
+name="bus_number"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Source</label>
+
+<input type="text"
+name="source"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Destination</label>
+
+<input type="text"
+name="destination"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Departure Time</label>
+
+<input type="time"
+name="departure_time"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Arrival Time</label>
+
+<input type="time"
+name="arrival_time"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Total Seats</label>
+
+<input type="number"
+name="total_seats"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Ticket Price</label>
+
+<input type="number"
+name="price"
+class="form-control"
+required>
+
+</div>
+
+<button class="btn btn-primary">
+
+Save Bus
+
+</button>
+
+</form>
+
+{% endblock %}
