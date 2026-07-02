@@ -24,4 +24,5 @@ class Bus(db.Model):
 
     price = db.Column(db.Float)
 
+
     bookings = db.relationship("Booking", backref="bus", lazy=True)
