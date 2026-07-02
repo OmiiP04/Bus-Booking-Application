@@ -4,43 +4,74 @@
 
 <h2>My Bookings</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
 
-<tr>
+    <thead class="table-dark">
 
-<th>Bus</th>
+        <tr>
 
-<th>Seat</th>
+            <th>Bus</th>
+            <th>Seat</th>
+            <th>Status</th>
+            <th>Action</th>
 
-<th>Status</th>
+        </tr>
 
-</tr>
+    </thead>
 
-{% for booking in bookings %}
+    <tbody>
 
-<tr>
+    {% for booking in bookings %}
 
-<td>
+        <tr>
 
-{{ booking.bus.bus_name }}
+            <td>{{ booking.bus.bus_name }}</td>
 
-</td>
+            <td>{{ booking.seat_number }}</td>
 
-<td>
+            <td>
 
-{{ booking.seat_number }}
+                {% if booking.status == "Booked" %}
 
-</td>
+                    <span class="badge bg-success">
+                        Booked
+                    </span>
 
-<td>
+                {% else %}
 
-{{ booking.status }}
+                    <span class="badge bg-danger">
+                        Cancelled
+                    </span>
 
-</td>
+                {% endif %}
 
-</tr>
+            </td>
 
-{% endfor %}
+            <td>
+
+                {% if booking.status == "Booked" %}
+
+                <a href="/cancel-booking/{{ booking.id }}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Cancel this booking?')">
+
+                    Cancel
+
+                </a>
+
+                {% else %}
+
+                    --
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
 
 </table>
 
