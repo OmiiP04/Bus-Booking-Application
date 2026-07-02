@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3>Passenger Details</h3>
+        </div>
+
+        <div class="card-body">
+
+            <h5>{{ bus.bus_name }}</h5>
+
+            <p>
+                <strong>{{ bus.source }}</strong>
+                →
+                <strong>{{ bus.destination }}</strong>
+            </p>
+
+            <form method="POST">
+
+                <div class="mb-3">
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="passenger_name"
+                        required>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <label>Age</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="passenger_age"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label>Gender</label>
+
+                        <select
+                            class="form-control"
+                            name="passenger_gender">
+
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label>Phone</label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="phone"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-3">
+
+                    <label>Travel Date</label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="travel_date"
+                        required>
+
+                </div>
+
+                <div class="mt-4">
+
+                    <button
+                        class="btn btn-success">
+
+                        Continue To Seat Selection
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
